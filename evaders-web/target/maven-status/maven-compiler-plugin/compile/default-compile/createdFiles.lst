@@ -1,0 +1,7 @@
+Bean\my.class
+client\EventSessionClientBean.class
+controller\NavigationController.class
+Bean\PostBean.class
+admin\EventBean.class
+Bean\UserView.class
+client\EventClientBean.class

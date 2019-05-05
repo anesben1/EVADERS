@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+    <ui:composition template="../layout.xhtml">
+        <ui:define name="title">OTDAV - WebSite</ui:define>
+
+      
+        <ui:define name="content">
+    			
+				 <div class="content">
+               
+	                <div class="post">
+	                    <div class="post-header">
+	                        <p class="results"><span>Ajout evenement</span></p>
+	                        
+	                    </div>
+	                    
+	                    
+	                </div>
+	                <h:form>
+                    <div class="post add-opening">
+                        <div class="post-header">
+                            <h2>Opening details</h2> </div>
+                            
+                        <ul>
+                            <li class="settings-field">
+                            	Nom Evenement
+                               <h:inputText value="#{eventClientBean.event.name}" />
+                                
+                            </li>
+                             <li class="settings-field">
+                            	Adresse
+                               <h:inputText value="#{eventClientBean.event.address}" />
+                                
+                            </li>
+                             <li class="settings-field">
+                            	Place disponible
+                               <h:inputText value="#{eventClientBean.event.places}" />
+                                
+                            </li>
+                            <li class="settings-field">
+                                Date Evenement
+                                <h:inputText styleClass="myDatePicker" value="#{eventClientBean.dateEvent}" />
+                            </li>
+                            <li class="settings-field">
+                                Description
+                                <h:inputTextarea value="#{eventClientBean.event.description}" />
+                            </li>
+                        </ul>
+                        <div class="post-footer"> <a class="edit-link" href="#">[Edit]</a> </div>
+                          
+                    </div>
+                 
+                    </h:form>
+                    
+                    <h:form>
+                     <h:commandLink
+                    style="text-decoration: none;margin:5px;width: 100px; padding: 12px; text-align: center;color: white;background: #3b4346;"
+                     action="#{eventClientBean.addEvent()}" 
+                     value="Ajout" />
+                    </h:form>
+                 </div>	
+        </ui:define>
+
+      
+
+    </ui:composition>
+</h:body>
+
+</html>

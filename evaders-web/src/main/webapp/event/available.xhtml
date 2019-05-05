@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+    <ui:composition template="../template/layout.xhtml">
+        <ui:define name="title">OTDAV - WebSite</ui:define>
+
+      
+        <ui:define name="template">
+        
+       		<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Blog Posts				
+							</h1>	
+							<p class="text-white link-nav"><a href="index-2.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="blog-home.html"> Blog Posts</a></p>
+						</div>											
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+			
+			<!-- Start blog-posts Area -->
+			<section class="blog-posts-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 post-list blog-post-list">
+						
+                     		 <ui:repeat var="event" value="#{eventClientBean.availablePlaceEvents}">
+						
+								<div class="single-post">
+									<img class="img-fluid" src="#{request.contextPath}\ressources/img/blog/#{eventClientBean.getRandomImage()}" alt=""/>
+									<ul class="tags">
+										<li><a href="#">Art, </a></li>
+										<li><a href="#">Technology, </a></li>
+										<li><a href="#">Fashion</a></li>
+									</ul>
+									<a href="blog-single.html">
+										<h2 style="font-size:20px;">
+											  <h:form>
+	                                    	<h:commandLink style="    font-size: xx-large;" styleClass="opening-name" action="#{eventSessionClientBean.goDetails(event)}" value="#{event.name}" />
+	                                    </h:form>
+										</h2>
+									</a>
+										<p>
+										 #{event.description}
+										</p>
+									<div class="bottom-meta">
+										<div class="user-details row align-items-center">
+											<div class="comment-wrap col-lg-6">
+												<ul>
+													<li><a href="#"><span class="lnr lnr-heart"></span>	#{event.users.size()} Participants</a></li>
+													<li><a href="#"><span class="lnr lnr-bubble"></span> 06 Comments</a></li>
+												</ul>
+											</div>
+											<div class="social-wrap col-lg-6">
+												<ul>
+													<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+													<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+													<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+													<li><a href="#"><i class="fa fa-behance"></i></a></li>
+												</ul>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</ui:repeat>																					
+						</div>
+						<div class="col-lg-4 sidebar">
+						<div class="single-widget search-widget">
+									<a style="background:#ccc;text-decoration: none;margin:5px; padding: 7px; text-align: center;color: white;" 
+									href="#{request.contextPath}/event/home.jsf" class="btn"  >Tous</a>
+	                        	<a 
+	                        	href="#{request.contextPath}/event/available.jsf" class="btn btn-info"  >Disponible</a>						
+							</div>
+	                        	
+                        	<div class="single-widget search-widget">
+									<a href="#{request.contextPath}/event/list.jsf" class="btn btn-info" >Tous</a>
+	                        	<a style="background:#ccc;text-decoration: none;margin:5px; padding: 7px; text-align: center;color: white;"
+	                        	href="#{request.contextPath}/event/available.jsf" class="btn" >Disponible</a>						
+							</div>
+							<div class="single-widget search-widget">
+								<form class="example" action="#" style="margin:auto;max-width:300px">
+								  <input type="text" placeholder="Search Posts" name="search2"/>
+								  <button type="submit"><i class="fa fa-search"></i></button>
+								</form>								
+							</div>
+
+							<div class="single-widget protfolio-widget">
+								<img src="#{request.contextPath}\ressources/img/blog/user2.jpg" alt=""/>
+								<a href="#"><h4>Adele Gonzalez</h4></a>
+								<p>
+									MCSE boot camps have its supporters and
+									its detractors. Some people do not understand why you should have to spend money
+									on boot camp when you can get.
+								</p>
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+									<li><a href="#"><i class="fa fa-behance"></i></a></li>
+								</ul>								
+							</div>
+
+							<div class="single-widget category-widget">
+								<h4 class="title">Post Categories</h4>
+								<ul>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Techlology</h6> <span>37</span></a></li>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Lifestyle</h6> <span>24</span></a></li>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Fashion</h6> <span>59</span></a></li>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Art</h6> <span>29</span></a></li>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Food</h6> <span>15</span></a></li>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Architecture</h6> <span>09</span></a></li>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Adventure</h6> <span>44</span></a></li>
+								</ul>
+							</div>
+
+							<div class="single-widget recent-posts-widget">
+								<h4 class="title">Recent Posts</h4>
+								<div class="blog-list ">
+									<div class="single-recent-post d-flex flex-row">
+										<div class="recent-thumb">
+											<img class="img-fluid" src="#{request.contextPath}\ressources/img/blog/r1.jpg" alt=""/>
+										</div>
+										<div class="recent-details">
+											<a href="blog-single.html">
+												<h4>
+													Home Audio Recording
+													For Everyone
+												</h4>
+											</a>
+											<p>
+												02 hours ago
+											</p>
+										</div>
+									</div>	
+									<div class="single-recent-post d-flex flex-row">
+										<div class="recent-thumb">
+											<img class="img-fluid" src="#{request.contextPath}\ressources/img/blog/r2.jpg" alt=""/>
+										</div>
+										<div class="recent-details">
+											<a href="blog-single.html">
+												<h4>
+													Home Audio Recording
+													For Everyone
+												</h4>
+											</a>
+											<p>
+												02 hours ago
+											</p>
+										</div>
+									</div>	
+									<div class="single-recent-post d-flex flex-row">
+										<div class="recent-thumb">
+											<img class="img-fluid" src="#{request.contextPath}\ressources/img/blog/r3.jpg" alt=""/>
+										</div>
+										<div class="recent-details">
+											<a href="blog-single.html">
+												<h4>
+													Home Audio Recording
+													For Everyone
+												</h4>
+											</a>
+											<p>
+												02 hours ago
+											</p>
+										</div>
+									</div>	
+									<div class="single-recent-post d-flex flex-row">
+										<div class="recent-thumb">
+											<img class="img-fluid" src="#{request.contextPath}\ressources/img/blog/r4.jpg" alt=""/>
+										</div>
+										<div class="recent-details">
+											<a href="blog-single.html">
+												<h4>
+													Home Audio Recording
+													For Everyone
+												</h4>
+											</a>
+											<p>
+												02 hours ago
+											</p>
+										</div>
+									</div>																																					
+								</div>								
+							</div>
+
+							<div class="single-widget category-widget">
+								<h4 class="title">Post Archive</h4>
+								<ul>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Dec '17</h6> <span>37</span></a></li>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Nov '17</h6> <span>24</span></a></li>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Oct '17</h6> <span>59</span></a></li>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Sep '17</h6> <span>29</span></a></li>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Aug '17</h6> <span>15</span></a></li>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Jul '17</h6> <span>09</span></a></li>
+									<li><a href="#" class="justify-content-between align-items-center d-flex"><h6>Jun '17</h6> <span>44</span></a></li>
+								</ul>
+							</div>			
+
+							<div class="single-widget tags-widget">
+								<h4 class="title">Tag Clouds</h4>
+								 <ul>
+								 	<li><a href="#">Lifestyle</a></li>
+								 	<li><a href="#">Art</a></li>
+								 	<li><a href="#">Adventure</a></li>
+								 	<li><a href="#">Food</a></li>
+								 	<li><a href="#">Techlology</a></li>
+								 	<li><a href="#">Fashion</a></li>
+								 	<li><a href="#">Architecture</a></li>
+								 	<li><a href="#">Food</a></li>
+								 	<li><a href="#">Technology</a></li>
+								 </ul>
+							</div>				
+
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End blog-posts Area -->
+			 
+        
+           </ui:define>
+
+      
+
+    </ui:composition>
+</h:body>
+
+</html>

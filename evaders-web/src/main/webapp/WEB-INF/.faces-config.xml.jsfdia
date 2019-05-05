@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:HomePage.xhtml" PATH="HomePage.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:HomePage.xhtml:0" NAME="item"
+   PATH="HomePage.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="Page:#{navigationController.moveToPage1}:page1.jsf"
+    NAME="output" PATH="page1.jsf" TARGET="rules:page1.jsf"
+    TITLE="#{navigationController.moveToPage1}:Page" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:page1.jsf" PATH="page1.jsf"
+  SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

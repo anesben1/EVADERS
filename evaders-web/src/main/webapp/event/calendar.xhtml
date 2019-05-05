@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+
+ <ui:composition template="../template/layout.xhtml">
+        <ui:define name="title">OTDAV - WebSite</ui:define>
+        <ui:define name="stylesheets">
+        		 <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'/>
+				<link href='#{request.contextPath}\resources\front/calendar/core/main.css' rel='stylesheet' />
+				<link href='#{request.contextPath}\resources\front/calendar/bootstrap/main.css' rel='stylesheet' />
+				<link href='#{request.contextPath}\resources\front/calendar/timegrid/main.css' rel='stylesheet' />
+				<link href='#{request.contextPath}\resources\front/calendar/daygrid/main.css' rel='stylesheet' />
+				<link href='#{request.contextPath}\resources\front/calendar/list/main.css' rel='stylesheet' />
+				<script src='#{request.contextPath}\resources\front/calendar/core/main.js'></script>
+				<script src='#{request.contextPath}\resources\front/calendar/interaction/main.js'></script>
+				<script src='#{request.contextPath}\resources\front/calendar/bootstrap/main.js'></script>
+				<script src='#{request.contextPath}\resources\front/calendar/daygrid/main.js'></script>
+				<script src='#{request.contextPath}\resources\front/calendar/timegrid/main.js'></script>
+				<script src='#{request.contextPath}\resources\front/calendar/list/main.js'></script>
+				<script src='#{request.contextPath}\resources\front/calendar/js/theme-chooser.js'></script>
+				<script>
+			
+			  document.addEventListener('DOMContentLoaded', function() {
+			    var calendarEl = document.getElementById('calendar');
+			    var calendar;
+				
+			    var content = #{eventClientBean.getCalendarData()};
+				console.log(content);
+			    initThemeChooser({
+			
+			      init: function(themeSystem) {
+			        calendar = new FullCalendar.Calendar(calendarEl, {
+		        	eventClick: function(info) {
+		        	 		   info.jsEvent.preventDefault(); // don't let the browser navigate
+			        	
+		        		    alert("Event: " + info.event.title+ " \n Address " + info.event.id + "\n Place Disponible "+ info.event.url);
+		        		    	    // change the border color just for fun
+		        		    info.el.style.backgroundColor = 'red';
+		        		  },
+			          plugins: [ 'bootstrap', 'interaction', 'dayGrid', 'timeGrid', 'list' ],
+			          themeSystem: themeSystem,
+			          header: {
+			            left: 'prev,next today',
+			            center: 'title',
+			            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+			          },
+			          defaultDate: '2019-04-12',
+			          weekNumbers: true,
+			          navLinks: true, // can click day/week names to navigate views
+			          editable: true,
+			          eventLimit: true, // allow "more" link when too many events
+			          events: content
+			        });
+			        calendar.render();
+			      },
+			
+			      change: function(themeSystem) {
+			        calendar.setOption('themeSystem', themeSystem);
+			      }
+			
+			    });
+			
+			  });
+			
+			</script>
+			  
+			        	
+        </ui:define>
+        
+        <ui:define name="template">
+       
+        <section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Calendar			
+							</h1>	
+							<p class="text-white link-nav"><a href="index-2.html">Event </a>  <span class="lnr lnr-arrow-right"></span>  <a href="price.html"> Calendar</a></p>
+						</div>											
+					</div>
+				</div>
+			</section>
+        	<div class="row">
+        		<div class="col-md-2">
+        		
+        		</div>
+        		<div class="col-md-8">
+							
+					  <div id='top'>
+					
+					    <div class='left'>
+					
+					      <div id='theme-system-selector' class='selector'>
+					        Theme System:
+					
+					        <select>
+					          <option value='bootstrap' selected="selected">Bootstrap 4</option>
+					          <option value='standard'>unthemed</option>
+					        </select>
+					      </div>
+					
+					      <div data-theme-system="bootstrap" class='selector' style='display:none'>
+					        Theme Name:
+					
+					        <select>
+					          <option value='' selected="selected">Default</option>
+					          <option value='cerulean'>Cerulean</option>
+					          <option value='cosmo'>Cosmo</option>
+					          <option value='cyborg'>Cyborg</option>
+					          <option value='darkly'>Darkly</option>
+					          <option value='flatly'>Flatly</option>
+					          <option value='journal'>Journal</option>
+					          <option value='litera'>Litera</option>
+					          <option value='lumen'>Lumen</option>
+					          <option value='lux'>Lux</option>
+					          <option value='materia'>Materia</option>
+					          <option value='minty'>Minty</option>
+					          <option value='pulse'>Pulse</option>
+					          <option value='sandstone'>Sandstone</option>
+					          <option value='simplex'>Simplex</option>
+					          <option value='sketchy'>Sketchy</option>
+					          <option value='slate'>Slate</option>
+					          <option value='solar'>Solar</option>
+					          <option value='spacelab'>Spacelab</option>
+					          <option value='superhero'>Superhero</option>
+					          <option value='united'>United</option>
+					          <option value='yeti'>Yeti</option>
+					        </select>
+					      </div>
+					
+					      <span id='loading' style='display:none'>loading theme...</span>
+					
+					    </div>
+					
+					    <div class='right'>
+					     
+					      <span class='credits' data-credit-id='bootstrap-custom' style='display:none'>
+					        <a href='https://bootswatch.com/' target='_blank'>Theme by Bootswatch</a>
+					      </span>
+					    </div>
+					
+					    <div class='clear'></div>
+					  </div>
+					
+					  <div id='calendar'></div>
+						        		
+        		</div>
+        	</div>	
+        </ui:define>
+        
+ </ui:composition>
+  
+     
+	
+</h:body>
+
+</html>

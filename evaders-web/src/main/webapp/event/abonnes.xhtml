@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+    <ui:composition template="../layout.xhtml">
+        <ui:define name="title">OTDAV - WebSite</ui:define>
+
+      
+        <ui:define name="content">
+    			
+				 <div class="content">
+             
+                
+                <div class="post">
+                    <div class="post-header">
+                        <p class="results"><span>#{eventClientBean.subscribedEvents.size()}</span> évenement(s) abboné(s)</p>
+                        <label class="sort">Sort:
+                            <select>
+                                <option>By date</option>
+                                <option>By name</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="openings">
+                       		 <ui:repeat var="event" value="#{eventClientBean.subscribedEvents}">
+	                            <tr class="opening">
+	                                <td class="opening-logo">
+	                                    <div class="star"></div>
+	                                    <a href="opening.htm"><img src="#{request.contextPath}\resources\front/images/company-logo1.png" alt="Logo"/></a>
+	                                </td>
+	                                <td class="opening-meta">
+	                                    <h2>
+	                                    <h:form>
+	                                    	<h:commandLink styleClass="opening-name" action="#{eventSessionClientBean.goDetails(event)}" value="#{event.name}" />
+	                                    </h:form>
+	                                    </h2>
+	                                    <h3><a href="company_profile.htm" class="company">#{event.owner.first_name}</a></h3> </td>
+	                                <td class="opening-type">
+	                                    <p class="freelance">#{event.owner.last_name}</p>
+	                                </td>
+	                                <td class="opening-location">
+	                                    <p><a href="#">#{event.address}</a></p>
+	                                </td>
+	                            </tr>
+                            </ui:repeat>
+                        
+                         </table>
+                    </div>
+                </div>
+                <nav class="paging">
+                    <ul>
+                        <li class="neighbour"><a href="home_v.1.htm">Prev</a></li>
+                        <li class="current"><a href="home_v.1.htm">1</a></li>
+                        <li><a href="home_v.2.htm">2</a></li>
+                        <li><a href="home_v.3.htm">3</a></li>
+                        <li><span class="dots">...</span></li>
+                        <li><a href="home_v.4.htm">10</a></li>
+                        <li><a href="home_v.1.htm">11</a></li>
+                        <li><a href="home_v.1.htm">12</a></li>
+                        <li class="neighbour"><a href="home_v.1.htm">Next</a></li>
+                    </ul>
+                </nav>
+            </div>	
+        </ui:define>
+
+      
+
+    </ui:composition>
+</h:body>
+
+</html>
