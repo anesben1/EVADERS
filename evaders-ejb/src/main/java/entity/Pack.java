@@ -34,6 +34,8 @@ public class Pack implements Serializable{
 
 	public void setIdPack(int idPack) {
 		this.idPack = idPack;
+		
+		
 	}
 
 	public String getNom() {
