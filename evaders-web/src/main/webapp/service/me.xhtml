@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+    <ui:composition template="../layout.xhtml">
+        <ui:define name="title">OTDAV - WebSite</ui:define>
+
+      
+        <ui:define name="content">
+    			
+				 <div class="content">
+             
+                
+                <div class="post">
+                    <div class="post-header">
+                        <p class="results"><span>#{reclamationClientBean.myServices.size()}</span> Service(s)</p>
+                        <label class="sort">Sort:
+                            <select>
+                                <option>By date</option>
+                                <option>By name</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="openings">
+                       		 <ui:repeat var="service" value="#{reclamationClientBean.myServices}">
+	                            <tr style="#{service.treated ? 'background : white' : 'background : #ccc'}" class="opening">
+	                                <td class="opening-logo">
+	                                    <h:panelGroup rendered="#{!service.etat}">
+	                                   		 <div class="star"></div>
+	                                    </h:panelGroup>
+	                                     <h:panelGroup rendered="#{service.etat}">
+	                                   		 <div class="star star-checked"></div>
+	                                    </h:panelGroup>
+	                                </td>
+	                                <td class="opening-meta">
+	                                    <h2>
+	                                    <h:form>
+	                                    	<h:commandLink styleClass="opening-name" action="#" value="#{service.sujet}" />
+	                                    </h:form>
+	                                    </h2>
+	                                    <h3><a href="company_profile.htm" class="company">#{service.categorieAV.toString()}</a></h3> </td>
+	                                <td class="opening-type">
+	                                    <p class="freelance">
+	                                    <h:outputText value="#{service.dateSAV}" >
+										    <f:convertDateTime pattern="dd.MM.yyyy" />
+										</h:outputText>
+	                                    </p>
+	                                </td>
+	                                <td class="opening-location">
+	                                    <p><a href="#">#{service.treated ? 'Traitée' : 'Non Traitée'}</a></p>
+	                                </td>
+	                            </tr>
+                            </ui:repeat>
+                        
+                         </table>
+                    </div>
+                </div>
+                <nav class="paging">
+                    <ul>
+                        <li class="neighbour"><a href="home_v.1.htm">Prev</a></li>
+                        <li class="current"><a href="home_v.1.htm">1</a></li>
+                        <li><a href="home_v.2.htm">2</a></li>
+                        <li><a href="home_v.3.htm">3</a></li>
+                        <li><span class="dots">...</span></li>
+                        <li><a href="home_v.4.htm">10</a></li>
+                        <li><a href="home_v.1.htm">11</a></li>
+                        <li><a href="home_v.1.htm">12</a></li>
+                        <li class="neighbour"><a href="home_v.1.htm">Next</a></li>
+                    </ul>
+                </nav>
+            </div>	
+        </ui:define>
+
+      
+
+    </ui:composition>
+</h:body>
+
+</html>

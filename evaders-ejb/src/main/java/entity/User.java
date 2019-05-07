@@ -3,12 +3,15 @@ package entity;
 import java.io.Serializable;
 import java.lang.String;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import javax.ejb.EnterpriseBean;
 import javax.persistence.*;
+
 
 /**
  * Entity implementation class for Entity: User
@@ -54,7 +57,91 @@ public class User implements Serializable {
 	private Entreprise_Profile Admin_deEntreprise;
 	@OneToOne
 	private Condidate_Profile condidate_Profile;
-
+	
+   @OneToOne(mappedBy="owner")
+   private Event event;	
+   @ManyToMany(fetch = FetchType.EAGER,mappedBy="users")
+   private Set<Event> events = new Set<Event>() {
+	
+	@Override
+	public <T> T[] toArray(T[] a) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public Object[] toArray() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
+	public boolean retainAll(Collection<?> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public boolean removeAll(Collection<?> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public boolean remove(Object o) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public Iterator<Event> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public boolean containsAll(Collection<?> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public boolean contains(Object o) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public boolean addAll(Collection<? extends Event> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public boolean add(Event e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+} ;
+	
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
@@ -211,8 +298,14 @@ public class User implements Serializable {
 		this.condidate_Profile = condidate_Profile;
 	}
 
+	public Set<Event> getEvents() {
+		return events;
+	}
 
-
+	public void setEvents(Set<Event> events) {
+		this.events = events;
+	}
+	
 	
 
    

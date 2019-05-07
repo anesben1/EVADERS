@@ -105,8 +105,8 @@ public class ServiceUser implements ServiceUserRemote, ServiceUserLocal {
 	    ez= 5;
 		return (user!=null);
 	}
-
-
+	
+	
 	@Override
 	public int sendConfirmationCode(User user)  {
 	Mail mail = new Mail();

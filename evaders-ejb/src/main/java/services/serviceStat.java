@@ -11,14 +11,16 @@ import java.util.Set;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.jws.soap.SOAPBinding.Use;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-
+import entity.Entreprise_Profile;
 import entity.Offer;
 import entity.Skill;
+import entity.User;
 
 
 
@@ -39,6 +41,12 @@ public class serviceStat implements serviceStatRemote, serviceStatLocal {
     public serviceStat() {
         // TODO Auto-generated constructor stub
     }
+    @Override
+    public int getNbOfferByEntrepriseByMonth(User user,int month) {
+    	Entreprise_Profile ep = user.getEntreprise();
+    	TypedQuery<Offer> query = em.createQuery("SELECT O FROM Offer O  Right Join O.entreprise e where e = :user and ",Offer.class);
+    	return query.setParameter("user", ep).getResultList().size();
+    }
     
    public float statEntreprise (String year , String year1){
     	 float x=0 ;
@@ -53,6 +61,8 @@ public class serviceStat implements serviceStatRemote, serviceStatLocal {
     	
     }
     
+   
+   
 
          	
          

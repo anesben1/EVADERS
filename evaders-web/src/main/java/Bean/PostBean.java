@@ -9,8 +9,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import entities.Forum;
-import entities.User;
 import entity.Post;
 import services.servicePostulationLocal;
 
@@ -28,14 +26,7 @@ public class PostBean implements Serializable {
 	
 	
 	 public String creatPost() {
-	        post.setDate();
-	        FacesContext context = FacesContext.getCurrentInstance();
-	       
-	        
-	       
-	        Post = new Post();
-	        forumList = forumServiceLocal.findAll();
-	        return null;
+	       return "ok";
 	    }
 	
 	

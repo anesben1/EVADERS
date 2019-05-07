@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+    <ui:composition template="./template/layout.xhtml">
+        <ui:define name="title">OTDAV - WebSite</ui:define>
+
+
+        <ui:define name="template">
+           		<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row search-page-top d-flex align-items-center justify-content-center">
+						<div class="banner-content col-lg-12">
+							<h1 class="text-white">
+								Connectez-vous		
+							</h1>
+							<p class="text-white link-nav">
+								<a href="index-2.html">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="search.html"> Login</a>
+							</p>	
+							<h:form styleClass="serach-form-area">
+								<div class="row justify-content-center form-wrap">
+									<div style="color: red">#{userSessionBean.errorLogin}</div>
+									<div class="col-lg-4 form-cols">
+										<h:inputText styleClass="form-control" value="#{userSessionBean.login}" />
+									</div>
+
+									<div class="col-lg-4 form-cols">
+										<h:inputSecret  styleClass="form-control" value="#{userSessionBean.password}" />
+									</div>
+									
+								
+									<div class="col-lg-2 form-cols">
+									   <h:commandLink action="#{userSessionBean.verifLogin()}" value="Connextion" styleClass="btn btn-info" />
+									</div>								
+								</div>
+							</h:form>	
+						</div>											
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+				
+        </ui:define>
+
+      
+
+    </ui:composition>
+</h:body>
+
+</html>
