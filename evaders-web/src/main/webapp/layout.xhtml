@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="#{request.contextPath}\resources\front/css/style.css"/>
+    <link rel="stylesheet" href="#{request.contextPath}\resources\front/css/datePicker.min.css"/>
+    
+    <script type="text/javascript" src="#{request.contextPath}\resources\front/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}\resources\front/js/script.js"></script>
+    
+    	
+    <!-- plugins:css -->
+    
+	<link href="/evaders-web/ressources/css/bootstrap.css" rel="stylesheet" />
+	<link href="/evaders-web/ressources/css/Styles.css" rel="stylesheet" />
+	<link href="/evaders-web/ressources/css/animate.min.css"
+		rel="stylesheet" />
+	<link href="/evaders-web/ressources/css/font-awesome.min.css"
+		rel="stylesheet" />
+	<link href="/evaders-web/ressources/css/linearicons.css"
+		rel="stylesheet" />
+	<link href="/evaders-web/ressources/css/magnific-popup.css"
+		rel="stylesheet" />
+	<link href="/evaders-web/ressources/css/main.css" rel="stylesheet" />
+	<link href="/evaders-web/ressources/css/nice-select.css"
+		rel="stylesheet" />
+	<link href="/evaders-web/ressources/css/owl.carousel.css"
+		rel="stylesheet" />
+   
+    <title><ui:insert name="title"></ui:insert></title>
+</h:head>
+
+<h:body>
+
+	  
+    <div class="wrapper version1">
+        <header>
+            <div class="site-header">
+                <div class="site-title">
+                    <a href="home_v.1.htm"><img src="#{request.contextPath}\resources\front/images/logo.png" alt="*"/></a>
+                    <h1><a href="home_v.1.htm">Opening</a></h1> </div>
+                <nav class="site-nav">
+                    <ul>
+                        <li class="current_page_item"> <a href="home_v.1.htm">Home</a>
+                            <ul class="sub-menu">
+                                <li class="current_page_item"><a href="#{request.contextPath}/event/list.jsf">Evenements</a></li>
+                                <li><a href="#{request.contextPath}/event/abonnes.jsf">Mes evenements abonnées</a></li>
+                                <li><a href="#{request.contextPath}/event/add.jsf">Ajout Evenement</a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="#">Reclamation</a>
+                            <ul class="sub-menu">
+                                <li><a href="#{request.contextPath}/reclamation/add.jsf">Ajout</a></li>
+                                <li><a href="#{request.contextPath}/reclamation/me.jsf">Mes Reclamations</a></li>
+                            </ul>
+                        </li>
+                         <li> <a href="#">Service</a>
+                            <ul class="sub-menu">
+                                <li><a href="#{request.contextPath}/service/add.jsf">Ajout</a></li>
+                                <li><a href="#{request.contextPath}/service/me.jsf">Mes Services</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="user-area">
+                    <div class="user-area-overlay"> <img class="avatar" alt="Avatar" src="#{request.contextPath}\resources\front/images/avatar.jfif"/>
+                        <p>Hi, <span>John</span>!</p>
+                        <ul class="user-options">
+                            <li><a href="user_profile_settings.htm">User Profile Settings</a></li>
+                            <li><a href="sign_in.htm">Sign In</a></li>
+                            <li><a href="sign_up.htm">Sign Up</a></li>
+                            <li><a href="reset_password.htm">Reset Password</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>	
+       
+        <div class="main clearfix">
+              <ui:insert name="content"></ui:insert>	      
+               <aside class="sidebar">
+                <div class="widget add-opening">
+                    <form action="add_opening.html">
+                        <button>Add opening<span class="plus">+</span></button>
+                    </form>
+                </div>
+                <div class="widget">
+                    <h3>Text widget</h3>
+                    <p>Proin at risus augue. Proin sapien est, convallis vitae ligula vitae, fermentum viverra erat.</p>
+                </div>
+                <div class="widget featured-companies">
+                    <h3>Featured companies</h3>
+                    <ul>
+                        <li class="featured-company">
+                            <a href="company_profile.htm"><img src="#{request.contextPath}\resources\front/images/featured-company1.png" alt="Company"/></a>
+                            <div class="count">17</div>
+                        </li>
+                        <li class="featured-company">
+                            <a href="company_profile.htm"><img src="#{request.contextPath}\resources\front/images/featured-company2.png" alt="Company"/></a>
+                            <div class="count">8</div>
+                        </li>
+                        <li class="featured-company">
+                            <a href="company_profile.htm"><img src="#{request.contextPath}\resources\front/images/featured-company3.png" alt="Company"/></a>
+                            <div class="count">4</div>
+                        </li>
+                        <li class="featured-company">
+                            <a href="company_profile.htm"><img src="#{request.contextPath}\resources\front/images/featured-company4.png" alt="Company"/></a>
+                            <div class="count">2</div>
+                        </li>
+                    </ul> <a href="home_v.1.htm">All Companies</a> </div>
+                <div class="widget newsletter">
+                    <h3>Newsletter</h3>
+                    <input name="email" type="email"/>
+                    <p class="info"><span class="required">*</span> You will get a notification email</p>
+                </div>
+                <div class="widget">
+                    <h3>Hire WP Developer</h3>
+                    <p>We have a team of professional WordPress developers and designers who can turn your ideas into a fully functional WordPress theme or plugin. Let's discuss the details and figure out how we can help you.</p> <a href="https://bestwebsoft.com/contacts/" style="display:block;text-align:center;margin-top:20px;background-color:orange;color:#fff;padding:10px 0 10px 0;font-size:1.2em;font-weight:bold;text-transform:uppercase;letter-spacing:.05em;border-radius:5px" target="_blank">Request a Quote</a> </div>
+            </aside>
+       
+		</div>
+	
+        <footer>
+            <div class="site-footer">
+                <div class="site-title">
+                    <a href="home_v.1.htm"><img src="#{request.contextPath}\resources\front/images/logo.png" alt="*"/></a>
+                    <h1><a href="home_v.1.htm">Opening</a></h1> </div>
+                <nav class="site-nav">
+                    <ul>
+                        <li><a href="https://bestwebsoft.com/about/" target="_blank">About</a></li>
+                        <li><a href="https://bestwebsoft.com/products/" target="_blank">Products</a></li>
+                        <li><a href="https://support.bestwebsoft.com/" target="_blank">Support Forum</a></li>
+                    </ul>
+                </nav>
+                <div class="links">
+                    <a class="facebook" href="https://www.facebook.com/bestwebsoft" target="_blank"></a>
+                    <a class="twitter" href="https://twitter.com/bestwebsoft" target="_blank"></a>
+                    <a class="youtube" href="https://www.youtube.com/bestwebsoft" target="_blank"></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+	
+
+    
+
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    
+    <script src="#{request.contextPath}\resources\front\js\datePicker.min.js"></script>
+   <script>
+   	const picker = datepicker('.myDatePicker', { startDay: 1 })
+   </script>
+
+    <ui:insert name="scripts"></ui:insert>
+
+</h:body>
+</html>

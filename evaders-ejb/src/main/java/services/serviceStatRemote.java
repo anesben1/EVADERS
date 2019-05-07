@@ -5,10 +5,13 @@ import java.util.Map;
 
 import javax.ejb.Remote;
 
+import entity.User;
+
 
 
 @Remote
 public interface serviceStatRemote {
+	public int getNbOfferByEntrepriseByMonth(User user,int month);
 	public float statEntreprise (String year , String year1);
 	public float statEntrepris (String year , String year1);
 	public float statEntrepri (String year , String year1);

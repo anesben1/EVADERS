@@ -41,6 +41,7 @@ public class Entreprise_Profile implements Serializable {
 	@OneToOne 
 	private Payment payment;
 
+
 	@OneToOne(mappedBy="Admin_deEntreprise")
 	private User  user;
 	

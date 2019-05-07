@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+    <ui:composition template="../layout.xhtml">
+        <ui:define name="title">OTDAV - WebSite</ui:define>
+
+      
+        <ui:define name="content">
+    			
+				<div class="content">
+	                <div class="post">
+	                    <div class="post-header">
+	                        <p class="results"><span>Ajout Reclamation</span></p>
+	                        
+	                    </div>
+	                    <div style="padding : 10px" class="table-wrapper">
+	                        <table class="openings">
+			                     <h:form>
+			                        <h:outputText value="Sujet" /><br/>
+			                        <h:inputTextarea style="width:60%" rows="4" cols="12" value="#{reclamationClientBean.desctiption}" /><br/>
+			                     	<h:outputText value="Catégorie" /><br/>
+									<h:selectOneMenu  value="#{reclamationClientBean.catr}">
+									    <f:selectItems value="#{reclamationClientBean.categoriRec}" var="cat" itemValue="#{cat}" itemLabel="#{cat.toString()}" />
+									</h:selectOneMenu>
+									<h:commandLink styleClass="submit-request" action="#{reclamationClientBean.addReclamation()}" value="Ajout reclamation" />
+			                     </h:form>
+		                     </table>
+               			</div>
+            		</div>
+            </div>	
+        </ui:define>
+
+      
+
+    </ui:composition>
+</h:body>
+
+</html>
