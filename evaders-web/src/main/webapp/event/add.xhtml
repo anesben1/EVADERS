@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+
+ <ui:composition template="../template/layout.xhtml">
+        <ui:define name="title">OTDAV - WebSite</ui:define>
+
+      
+        <ui:define name="template">
+        
+       		<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Ajout Evenement				
+							</h1>	
+							<p class="text-white link-nav"><a href="index-2.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="blog-home.html"> Blog Posts</a></p>
+						</div>											
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->
+						<section class="blog-posts-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 post-list blog-post-list">
+								 <div style="color:red">
+									#{eventSessionClientBean.addError}
+				 			   	</div>
+						           <h:form>
+						         	Nom Evenement<br/>
+						            <h:inputText styleClass="single-input" value="#{eventSessionClientBean.event.name}" /><br/>
+						         
+						         	Adresse<br/>
+						            <h:inputText styleClass="single-input"  value="#{eventSessionClientBean.event.address}" /><br/>
+						             
+						        
+						         	Place disponible<br/>
+						            <h:inputText styleClass="single-input"  value="#{eventSessionClientBean.event.places}" /><br/>
+						             
+						        
+						             Date Evenement<br/>
+						             <h:inputText styleClass="myDatePicker single-input" value="#{eventSessionClientBean.dateEvent}" /><br/>
+						       
+						             Description<br/>
+						             <h:inputTextarea styleClass="single-input"  value="#{eventSessionClientBean.event.description}" /><br/>
+						                       
+						               <h:commandLink styleClass="btn btn-primary"  action="#{eventSessionClientBean.addEvent()}"  value="Ajout" />
+						           </h:form>
+				           </div>
+		           </div>
+	           </div>
+			</section>	
+			
+			</ui:define>
+		</ui:composition>
+		
+            <ui:insert name="javascripts">
+            
+               <script>
+			   	const picker = datepicker('.myDatePicker', { startDay: 1 })
+			   </script>
+            </ui:insert>
+        
+</h:body>
+
+</html>

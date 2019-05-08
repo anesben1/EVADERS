@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+    <ui:composition template="../layout.xhtml">
+        <ui:define name="title">OTDAV - WebSite</ui:define>
+
+      
+        <ui:define name="content">
+    			
+				 <div style="padding: 20px" class="row padding-15px">
+			   			 		<h3>
+									Liste Reclamations non traitées
+								</h3>
+								<h:form>
+						        <h:commandButton value="Send..." action="#{eventBean.search()}">
+						            <f:param id="word" name="word" value="4"/>
+						        </h:commandButton>
+						    </h:form>
+								<h:panelGroup rendered="#{reclamationBean.reclamations.size() le 0}">
+									pas de réclamation
+								</h:panelGroup>
+							
+							   <h:dataTable  rendered="#{reclamationBean.reclamations.size() gt 0}"  id="example" styleClass="table table-striped table-bordered"
+                                                 cellspacing="0" width="100%"
+                                                 value="#{reclamationBean.reclamations}" var="reclamation">
+
+                                        <h:column>
+                                            <f:facet name="header">#</f:facet>
+                                            #{reclamation.idRec}
+                                        </h:column>
+                                        
+                                        <h:column>
+                                            <f:facet name="header">Sujet Reclamation</f:facet>
+                                            #{reclamation.sujet}
+                                        </h:column>
+                                        
+                                        <h:column>
+                                            <f:facet name="header">Type</f:facet>
+                                            #{reclamation.categorieRec.toString()}
+                                        </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">Date</f:facet>
+                                            #{reclamation.dateRec.toString()}
+                                        </h:column>
+
+                                       
+                                       
+                                         <h:column>
+                                            <f:facet name="header">Action</f:facet>
+                                            <h:form>
+                                          		  <h:commandLink action="#{reclamationBean.doTreatReclamation(reclamation	)}" value="Approuver Reclamation" />
+                                            </h:form>
+                                            
+                                        </h:column>
+
+                                     
+                                    </h:dataTable>
+							
+						</div>	
+        </ui:define>
+
+      
+
+    </ui:composition>
+</h:body>
+
+</html>
